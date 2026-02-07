@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل CSS Grid الشامل</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-right: 4px solid #3498db;
+            padding-right: 15px;
+        }
+
+        h3 {
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .example-container {
+            border: 2px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            background: white;
+        }
+
+        .example-title {
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        /* Grid Examples */
+        .grid-example-1 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .grid-example-1 > div {
+            background: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .grid-example-2 {
+            display: grid;
+            grid-template-columns: 200px 1fr 150px;
+            gap: 15px;
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .grid-example-2 > div {
+            background: #e74c3c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .grid-example-3 {
+            display: grid;
+            grid-template-rows: 100px 200px 100px;
+            gap: 10px;
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .grid-example-3 > div {
+            background: #27ae60;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .grid-example-4 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 100px);
+            gap: 10px;
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .grid-example-4 > div {
+            background: #9b59b6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid-example-5 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .grid-example-5 > div {
+            background: #f39c12;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .grid-example-5 .item-1 {
+            grid-column: 1 / 3;
+        }
+
+        .grid-example-5 .item-2 {
+            grid-row: 2 / 4;
+        }
+
+        .grid-example-6 {
+            display: grid;
+            grid-template-areas: 
+                "header header header"
+                "sidebar main main"
+                "footer footer footer";
+            gap: 10px;
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .grid-example-6 .header {
+            grid-area: header;
+            background: #e74c3c;
+        }
+
+        .grid-example-6 .sidebar {
+            grid-area: sidebar;
+            background: #3498db;
+        }
+
+        .grid-example-6 .main {
+            grid-area: main;
+            background: #27ae60;
+        }
+
+        .grid-example-6 .footer {
+            grid-area: footer;
+            background: #9b59b6;
+        }
+
+        .grid-example-6 > div {
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .grid-example-7 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .grid-example-7 > div {
+            background: #16a085;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 5px;
+            min-height: 100px;
+        }
+
+        .grid-example-8 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .grid-example-8 > div {
+            background: #c0392b;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .grid-example-9 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            height: 300px;
+            justify-content: space-between;
+            align-content: space-around;
+        }
+
+        .grid-example-9 > div {
+            background: #8e44ad;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .note {
+            background: #fff3cd;
+            border-right: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .tip {
+            background: #d1ecf1;
+            border-right: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        ul {
+            margin-right: 30px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .property-list {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .property-list strong {
+            color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📐 دليل CSS Grid الشامل</h1>
+
+        <!-- مقدمة -->
+        <div class="section">
+            <h2>مقدمة عن CSS Grid</h2>
+            <p>CSS Grid هو نظام تخطيط ثنائي الأبعاد (2D) يتيح لك إنشاء تخطيطات معقدة بسهولة. يمكنك التحكم في الصفوف والأعمدة في نفس الوقت.</p>
+            
+            <div class="tip">
+                <strong>💡 نصيحة:</strong> Grid مثالي للتخطيطات المعقدة، بينما Flexbox أفضل للمحاذاة في اتجاه واحد.
+            </div>
+        </div>
+
+        <!-- 1. إنشاء Grid Container -->
+        <div class="section">
+            <h2>1. إنشاء Grid Container</h2>
+            <p>لتحويل عنصر إلى Grid Container، استخدم:</p>
+            
+            <div class="code-block">
+.container {
+    display: grid;
+}
+            </div>
+
+            <div class="example-container">
+                <div class="example-title">مثال: Grid بسيط بثلاثة أعمدة</div>
+                <div class="grid-example-1">
+                    <div>عنصر 1</div>
+                    <div>عنصر 2</div>
+                    <div>عنصر 3</div>
+                    <div>عنصر 4</div>
+                    <div>عنصر 5</div>
+                    <div>عنصر 6</div>
+                </div>
+            </div>
+
+            <div class="code-block">
+.grid-example-1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+            </div>
+        </div>
+
+        <!-- 2. grid-template-columns -->
+        <div class="section">
+            <h2>2. grid-template-columns (تحديد الأعمدة)</h2>
+            <p>يحدد عدد الأعمدة وحجم كل عمود.</p>
+
+            <div class="property-list">
+                <h3>القيم الممكنة:</h3>
+                <ul>
+                    <li><strong>repeat(3, 1fr):</strong> 3 أعمدة متساوية</li>
+                    <li><strong>200px 1fr 150px:</strong> عمود ثابت، عمود مرن، عمود ثابت</li>
+                    <li><strong>auto auto auto:</strong> 3 أعمدة بحجم تلقائي</li>
+                    <li><strong>minmax(200px, 1fr):</strong> حد أدنى 200px وحد أقصى مرن</li>
+                </ul>
+            </div>
+
+            <div class="example-container">
+                <div class="example-title">مثال: أعمدة بأحجام مختلفة</div>
+                <div class="grid-example-2">
+                    <div>200px</div>
+                    <div>1fr (مرن)</div>
+                    <div>150px</div>
+                </div>
+            </div>
+
+            <div class="code-block">
+.grid-example-2 {
+    display: grid;
+    grid-template-columns: 200px 1fr 150px;
+    gap: 15px;
+}
+            </div>
+        </div>
+
+        <!-- 3. grid-template-rows -->
+        <div class="section">
+            <h2>3. grid-template-rows (تحديد الصفوف)</h2>
+            <p>يحدد عدد الصفوف وارتفاع كل صف.</p>
+
+            <div class="example-container">
+                <div class="example-title">مثال: صفوف بارتفاعات مختلفة</div>
+                <div class="grid-example-3">
+                    <div>100px</div>
+                    <div>200px</div>
+                    <div>100px</div>
+                </div>
+            </div>
+
+            <div class="code-block">
+.grid-example-3 {
+    display: grid;
+    grid-template-rows: 100px 200px 100px;
+    gap: 10px;
+}
+            </div>
+        </div>
+
+        <!-- 4. gap -->
+        <div class="section">
+            <h2>4. gap (المسافة بين العناصر)</h2>
+            <p>يحدد المسافة بين صفوف وأعمدة Grid.</p>
+
+            <div class="code-block">
+.container {
+    gap: 20px;              /* مسافة موحدة */
+    row-gap: 15px;          /* مسافة الصفوف فقط */
+    column-gap: 25px;       /* مسافة الأعمدة فقط */
+    gap: 15px 25px;         /* row-gap column-gap */
+}
+            </div>
+
+            <div class="note">
+                <strong>ملاحظة:</strong> gap حل محل grid-gap في الإصدارات الحديثة.
+            </div>
+        </div>
+
+        <!-- 5. grid-template -->
+        <div class="section">
+            <h2>5. grid-template (اختصار)</h2>
+            <p>اختصار لـ grid-template-rows و grid-template-columns و grid-template-areas.</p>
+
+            <div class="code-block">
+.container {
+    grid-template: 
+        "header header header" 100px
+        "sidebar main main" 200px
+        "footer footer footer" 100px
+        / 200px 1fr 1fr;
+}
+            </div>
+        </div>
+
+        <!-- 6. grid-template-areas -->
+        <div class="section">
+            <h2>6. grid-template-areas (تخطيط بالمناطق)</h2>
+            <p>طريقة مرئية لإنشاء التخطيطات باستخدام الأسماء.</p>
+
+            <div class="example-container">
+                <div class="example-title">مثال: تخطيط موقع كامل</div>
+                <div class="grid-example-6">
+                    <div class="header">Header</div>
+                    <div class="sidebar">Sidebar</div>
+                    <div class="main">Main Content</div>
+                    <div class="footer">Footer</div>
+                </div>
+            </div>
+
+            <div class="code-block">
+.grid-example-6 {
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+    gap: 10px;
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }
+            </div>
+        </div>
+
+        <!-- 7. grid-column & grid-row -->
+        <div class="section">
+            <h2>7. grid-column & grid-row (وضع العناصر)</h2>
+            <p>تحديد موقع العنصر في Grid.</p>
+
+            <div class="example-container">
+                <div class="example-title">مثال: عناصر تمتد عبر عدة خلايا</div>
+                <div class="grid-example-5">
+                    <div class="item-1">عنصر 1 (عمودين)</div>
+                    <div class="item-2">عنصر 2 (صفين)</div>
+                    <div>عنصر 3</div>
+                    <div>عنصر 4</div>
+                    <div>عنصر 5</div>
+                    <div>عنصر 6</div>
+                </div>
+            </div>
+
+            <div class="code-block">
+.item-1 {
+    grid-column: 1 / 3;        /* من العمود 1 إلى 3 */
+    /* أو */
+    grid-column: 1 / span 2;   /* يبدأ من 1 ويمتد عمودين */
+}
+
+.item-2 {
+    grid-row: 2 / 4;           /* من الصف 2 إلى 4 */
+    /* أو */
+    grid-row: 2 / span 2;      /* يبدأ من 2 ويمتد صفين */
+}
+            </div>
+
+            <div class="property-list">
+                <h3>القيم الممكنة:</h3>
+                <ul>
+                    <li><strong>1 / 3:</strong> من الخط 1 إلى الخط 3</li>
+                    <li><strong>1 / span 2:</strong> يبدأ من 1 ويمتد خليتين</li>
+                    <li><strong>auto:</strong> تلقائي</li>
+                    <li><strong>-1:</strong> آخر خط</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 8. grid-area -->
+        <div class="section">
+            <h2>8. grid-area (اختصار للوضع)</h2>
+            <p>اختصار لـ grid-row-start, grid-column-start, grid-row-end, grid-column-end.</p>
+
+            <div class="code-block">
+.item {
+    grid-area: 2 / 1 / 4 / 3;
+    /* row-start / column-start / row-end / column-end */
+    
+    /* أو استخدام اسم منطقة */
+    grid-area: header;
+}
+            </div>
+        </div>
+
+        <!-- 9. justify-items & align-items -->
+        <div class="section">
+            <h2>9. justify-items & align-items (محاذاة العناصر)</h2>
+            <p>محاذاة العناصر داخل خلاياها.</p>
+
+            <div class="example-container">
+                <div class="example-title">مثال: محاذاة في المنتصف</div>
+                <div class="grid-example-8">
+                    <div>عنصر 1</div>
+                    <div>عنصر 2</div>
+                    <div>عنصر 3</div>
+                </div>
+            </div>
+
+            <div class="code-block">
+.container {
+    justify-items: center;     /* أفقياً: start | end | center | stretch */
+    align-items: center;       /* عمودياً: start | end | center | stretch */
+    
+    /* اختصار */
+    place-items: center center;
+}
+            </div>
+        </div>
+
+        <!-- 10. justify-content & align-content -->
+        <div class="section">
+            <h2>10. justify-content & align-content (محاذاة Grid)</h2>
+            <p>محاذاة Grid بأكمله داخل الحاوية.</p>
+
+            <div class="example-container">
+                <div class="example-title">مثال: محاذاة Grid</div>
+                <div class="grid-example-9">
+                    <div>عنصر 1</div>
+                    <div>عنصر 2</div>
+                    <div>عنصر 3</div>
+                </div>
+            </div>
+
+            <div class="code-block">
+.container {
+    justify-content: space-between;  /* أفقياً */
+    align-content: space-around;     /* عمودياً */
+    
+    /* القيم: start | end | center | stretch | space-around | 
+       space-between | space-evenly */
+}
+            </div>
+        </div>
+
+        <!-- 11. auto-fit & auto-fill -->
+        <div class="section">
+            <h2>11. auto-fit & auto-fill (تخطيط مرن)</h2>
+            <p>إنشاء تخطيطات تستجيب تلقائياً للشاشة.</p>
+
+            <div class="example-container">
+                <div class="example-title">مثال: تخطيط مرن (جرب تغيير حجم النافذة)</div>
+                <div class="grid-example-7">
+                    <div>عنصر 1</div>
+                    <div>عنصر 2</div>
+                    <div>عنصر 3</div>
+                    <div>عنصر 4</div>
+                    <div>عنصر 5</div>
+                </div>
+            </div>
+
+            <div class="code-block">
+.grid-example-7 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+            </div>
+
+            <div class="property-list">
+                <h3>الفرق بين auto-fit و auto-fill:</h3>
+                <ul>
+                    <li><strong>auto-fit:</strong> يضغط الأعمدة الفارغة</li>
+                    <li><strong>auto-fill:</strong> يحتفظ بالأعمدة الفارغة</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 12. minmax() -->
+        <div class="section">
+            <h2>12. minmax() (حد أدنى وأقصى)</h2>
+            <p>يحدد حد أدنى وحد أقصى لحجم العمود أو الصف.</p>
+
+            <div class="code-block">
+.container {
+    grid-template-columns: minmax(200px, 1fr);
+    /* لا يقل عن 200px ولا يزيد عن 1fr */
+    
+    grid-template-columns: minmax(100px, 300px);
+    /* بين 100px و 300px */
+}
+            </div>
+        </div>
+
+        <!-- 13. fr Unit -->
+        <div class="section">
+            <h2>13. وحدة fr (Fraction)</h2>
+            <p>وحدة مرنة تمثل جزء من المساحة المتاحة.</p>
+
+            <div class="code-block">
+.container {
+    grid-template-columns: 1fr 2fr 1fr;
+    /* العمود الثاني ضعف الأول والثالث */
+    
+    grid-template-columns: 1fr 1fr 1fr;
+    /* ثلاثة أعمدة متساوية */
+}
+            </div>
+
+            <div class="note">
+                <strong>ملاحظة:</strong> fr يأخذ المساحة المتبقية بعد طرح الأحجام الثابتة.
+            </div>
+        </div>
+
+        <!-- 14. grid-auto-flow -->
+        <div class="section">
+            <h2>14. grid-auto-flow (اتجاه التدفق)</h2>
+            <p>يحدد كيفية وضع العناصر تلقائياً.</p>
+
+            <div class="code-block">
+.container {
+    grid-auto-flow: row;        /* افتراضي: صفوف */
+    grid-auto-flow: column;     /* أعمدة */
+    grid-auto-flow: dense;      /* يملأ الفراغات */
+    grid-auto-flow: row dense;  /* صفوف مع ملء الفراغات */
+}
+            </div>
+        </div>
+
+        <!-- 15. grid-auto-rows & grid-auto-columns -->
+        <div class="section">
+            <h2>15. grid-auto-rows & grid-auto-columns</h2>
+            <p>يحدد حجم الصفوف/الأعمدة التي يتم إنشاؤها تلقائياً.</p>
+
+            <div class="code-block">
+.container {
+    grid-auto-rows: 100px;      /* ارتفاع الصفوف التلقائية */
+    grid-auto-columns: 150px;   /* عرض الأعمدة التلقائية */
+    grid-auto-rows: minmax(50px, auto);  /* مرن */
+}
+            </div>
+        </div>
+
+        <!-- مثال شامل -->
+        <div class="section">
+            <h2>مثال شامل: تخطيط موقع كامل</h2>
+            
+            <div class="code-block">
+/* HTML */
+&lt;div class="website-layout"&gt;
+    &lt;header&gt;Header&lt;/header&gt;
+    &lt;nav&gt;Navigation&lt;/nav&gt;
+    &lt;main&gt;Main Content&lt;/main&gt;
+    &lt;aside&gt;Sidebar&lt;/aside&gt;
+    &lt;footer&gt;Footer&lt;/footer&gt;
+&lt;/div&gt;
+
+/* CSS */
+.website-layout {
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "nav main aside"
+        "footer footer footer";
+    grid-template-columns: 200px 1fr 250px;
+    grid-template-rows: 80px 1fr 60px;
+    gap: 20px;
+    min-height: 100vh;
+}
+
+header { grid-area: header; }
+nav { grid-area: nav; }
+main { grid-area: main; }
+aside { grid-area: aside; }
+footer { grid-area: footer; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .website-layout {
+        grid-template-areas: 
+            "header"
+            "nav"
+            "main"
+            "aside"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+}
+            </div>
+        </div>
+
+        <!-- خصائص العناصر -->
+        <div class="section">
+            <h2>خصائص العناصر (Grid Items)</h2>
+
+            <h3>grid-column-start & grid-column-end</h3>
+            <div class="code-block">
+.item {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    /* أو اختصار */
+    grid-column: 1 / 3;
+}
+            </div>
+
+            <h3>grid-row-start & grid-row-end</h3>
+            <div class="code-block">
+.item {
+    grid-row-start: 2;
+    grid-row-end: 4;
+    /* أو اختصار */
+    grid-row: 2 / 4;
+}
+            </div>
+
+            <h3>justify-self & align-self</h3>
+            <div class="code-block">
+.item {
+    justify-self: center;    /* محاذاة أفقية للعنصر نفسه */
+    align-self: center;      /* محاذاة عمودية للعنصر نفسه */
+    place-self: center;      /* اختصار */
+}
+            </div>
+        </div>
+
+        <!-- نصائح وأفضل الممارسات -->
+        <div class="section">
+            <h2>نصائح وأفضل الممارسات</h2>
+
+            <div class="tip">
+                <strong>💡 نصيحة 1:</strong> استخدم gap بدلاً من margin للعناصر داخل Grid.
+            </div>
+
+            <div class="tip">
+                <strong>💡 نصيحة 2:</strong> استخدم fr للوحدات المرنة بدلاً من النسب المئوية.
+            </div>
+
+            <div class="tip">
+                <strong>💡 نصيحة 3:</strong> استخدم grid-template-areas للتخطيطات المعقدة - أسهل للقراءة والصيانة.
+            </div>
+
+            <div class="tip">
+                <strong>💡 نصيحة 4:</strong> استخدم minmax() مع auto-fit/auto-fill لتصميمات responsive.
+            </div>
+
+            <div class="note">
+                <strong>⚠️ تحذير:</strong> Grid و Flexbox ليسا متنافسين - استخدم Grid للثنائي الأبعاد و Flexbox للاتجاه الواحد.
+            </div>
+        </div>
+
+        <!-- دعم المتصفحات -->
+        <div class="section">
+            <h2>دعم المتصفحات</h2>
+            <p>CSS Grid مدعوم في جميع المتصفحات الحديثة:</p>
+            <ul>
+                <li>Chrome 57+</li>
+                <li>Firefox 52+</li>
+                <li>Safari 10.1+</li>
+                <li>Edge 16+</li>
+                <li>Opera 44+</li>
+            </ul>
+        </div>
+
+        <!-- مراجع -->
+        <div class="section">
+            <h2>مراجع إضافية</h2>
+            <ul>
+                <li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">CSS-Tricks: Complete Guide to Grid</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank">MDN: CSS Grid Layout</a></li>
+                <li><a href="https://gridbyexample.com/" target="_blank">Grid by Example</a></li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 2px solid #3498db; color: #7f8c8d;">
+            <p>تم إعداد هذا الدليل لمساعدة الطلاب في تعلم CSS Grid</p>
+            <p style="margin-top: 10px;">📚 Happy Learning!</p>
+        </div>
+    </div>
+</body>
+</html>

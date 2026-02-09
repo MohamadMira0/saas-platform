@@ -26,9 +26,10 @@ body {
 }
 header {
     background-color: white;
-    box-shadow: 0 2px 10px rgb(249, 3, 3);
-    position: relative;
-    z-index: 10;
+    box-shadow: 0 2px 10px rgb(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 nav {
     display: flex;
@@ -69,7 +70,7 @@ main section:first-of-type {
     text-align: center;
     background: linear-gradient(to bottom right, #EFF3FF, #fff);
     padding: 3rem;
-    /* margin-top: 10rem; */
+    margin-top: 4rem;
 }
 main section:first-of-type h1 span {
     color: var(--main-color);
@@ -248,11 +249,11 @@ section:first-of-type > div:last-of-type > div p {
 
 
 /* Contact Section */
-/* #contact {
+ #contact {
     padding: 5rem 2rem;
     background-color: white;
     text-align: center;
-}
+} 
 
 #contact > h2 {
     font-size: 2.5rem;
@@ -264,9 +265,7 @@ section:first-of-type > div:last-of-type > div p {
     font-size: 1.25rem;
     color: #6b7280;
     margin-bottom: 3rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+ 
 }
 
 #contact form {
@@ -313,17 +312,30 @@ section:first-of-type > div:last-of-type > div p {
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: 0.3s;
 }
 
 #contact form button:hover {
     background-color: #4338ca;
-} */
+} 
 
 /* Footer */
-/* footer {
+footer {
     background-color: #111827;
     color: white;
     padding: 2rem;
     text-align: center;
-} */
+}
+
+#img {
+    display: none;
+}
+.image {
+    width: 400px;
+    height: 200px;
+    padding: 1rem;
+    border: #4338ca dashed 2px;
+    border-radius: 2rem;
+}
+
+.class1 + div {}

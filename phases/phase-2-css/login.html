@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SWB Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h1>Welcome Back</h1>
+                <p>Sign in to your account</p>
+            </div>
+
+            <div id="error-message" class="error-message" style="display: none;"></div>
+
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="form-input"
+                        placeholder="your.email@example.com"
+                        required
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="form-input"
+                        placeholder="••••••••"
+                        required
+                    />
+                </div>
+
+                <button type="submit" id="submit-btn" class="submit-button">
+                    <span id="button-text">Sign In</span>
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <p class="footer-text">
+                    Don't have an account? <a href="register.html" class="footer-link">Sign up</a>
+                </p>
+            </div>
+
+            <div class="login-back-link">
+                <a href="index.html" class="back-link">← Back to home</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('login-form');
+        const errorMessage = document.getElementById('error-message');
+        const submitBtn = document.getElementById('submit-btn');
+        const buttonText = document.getElementById('button-text');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorMessage.style.display = 'none';
+            submitBtn.disabled = true;
+            buttonText.textContent = 'Signing in...';
+
+            try {
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                // Simple validation (you can replace this with actual authentication)
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                
+                // For demo purposes, accept any email/password
+                // In production, this would be an actual API call
+                window.location.href = 'dashboard.html';
+            } catch (err) {
+                errorMessage.textContent = 'Something went wrong. Please try again.';
+                errorMessage.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                buttonText.textContent = 'Sign In';
+            }
+        });
+    </script>
+</body>
+</html>

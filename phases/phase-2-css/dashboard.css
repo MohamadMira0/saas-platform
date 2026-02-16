@@ -21,8 +21,8 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
     z-index: 1000;
+    width: 100%;
 }
 
 .navbar-container {
@@ -47,14 +47,11 @@ body {
     }
 }
 
-.navbar-left {
-    display: flex;
-    align-items: center;
-}
+
 
 .navbar-brand {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: bold;
     color: #4f46e5;
     text-decoration: none;
 }
@@ -76,8 +73,8 @@ body {
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
-    transition: background-color 0.2s;
     font-size: 1rem;
+    transition: background-color 0.2s;
 }
 
 .logout-button:hover {
@@ -104,19 +101,19 @@ body {
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.04);
 }
 
-.sidebar-content {
+/* .sidebar-content {
     padding: 1.5rem 1rem;
     display: flex;
     flex-direction: column;
-}
+} */
 
-.sidebar-nav {
+/* .sidebar-nav {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-}
+} */
 
-.sidebar-link {
+/* .sidebar-link {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -128,9 +125,9 @@ body {
     font-weight: 500;
     position: relative;
     margin-bottom: 0.25rem;
-}
+} */
 
-.sidebar-link::before {
+/* .sidebar-link::before {
     content: '';
     position: absolute;
     left: 0;
@@ -186,6 +183,7 @@ body {
 }
 
 /* Dashboard Main Content */
+/*  
 .dashboard-main {
     flex: 1;
     padding: 2rem;
@@ -201,6 +199,7 @@ body {
 }
 
 /* Statistics Cards */
+/* 
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -274,7 +273,7 @@ body {
     background-color: #8b5cf6;
 }
 
-/* Recent Activity */
+/* Recent Activity 
 .activity-card {
     background-color: white;
     border-radius: 0.75rem;
@@ -346,7 +345,7 @@ body {
     color: #4b5563;
 }
 
-/* Responsive Design for Dashboard */
+/* Responsive Design for Dashboard 
 @media (max-width: 1024px) {
     .dashboard-sidebar {
         width: 16rem;
@@ -420,4 +419,4 @@ body {
     .dashboard-title {
         font-size: 1.5rem;
     }
-}
+} */

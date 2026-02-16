@@ -360,7 +360,7 @@ footer {
     width: 100%;
     background-color: white;
     border-radius: 0.75rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 10px 0px 6px -2px rgba(0, 0, 0,0.05);    
     padding: 2rem;
 }
 
@@ -373,7 +373,7 @@ footer {
     font-size: 1.875rem;
     font-weight: 700;
     color: #111827;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
 }
 
 .login-header p {
@@ -411,8 +411,7 @@ footer {
     border: 1px solid #d1d5db;
     border-radius: 0.5rem;
     font-size: 1rem;
-    transition: 0.5s;
-    
+    transition: 0.2s;
 }
 
 .form-input:focus {

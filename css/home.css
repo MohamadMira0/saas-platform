@@ -66,6 +66,25 @@ nav ul li a:hover {
     color: var(--main-color);
 }
 
+.ul-navbar li {
+    position: relative;
+}
+.ul-navbar li::before {
+    content: "";
+    width: 0%;
+    height: 5px;
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    background-color: var(--main-color);
+    transition: 0.3s;
+}
+
+.ul-navbar li:hover::before {
+    width: 100%;
+}
+
+
 main section:first-of-type {
     text-align: center;
     background: linear-gradient(to bottom right, #EFF3FF, #fff);

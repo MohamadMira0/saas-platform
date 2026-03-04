@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - SWB Dashboard</title>
+    <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+    <!-- Dashboard Navbar -->
+    <nav class="dashboard-navbar">
+        <div class="navbar-container">
+            <div class="navbar-left">
+                <a href="dashboard.html" class="navbar-brand">SWB Dashboard</a>
+            </div>
+            <div class="navbar-right">
+                <span class="navbar-welcome">Welcome, User</span>
+                <button class="logout-button" onclick="handleLogout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-content">
+                <nav class="sidebar-nav">
+                    <a href="dashboard.html" class="sidebar-link">
+                        <span class="sidebar-icon">❤</span>
+                        <span class="sidebar-label">Dashboard</span>
+                    </a>
+                    <a href="tasks.html" class="sidebar-link">
+                        <span class="sidebar-icon">✅</span>
+                        <span class="sidebar-label">Tasks</span>
+                    </a>
+                    <a href="projects.html" class="sidebar-link active">
+                        <span class="sidebar-icon">📁</span>
+                        <span class="sidebar-label">Projects</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="projects-header">
+                <h1 class="dashboard-title">Projects Management</h1>
+                <button class="add-project-button" onclick="openProjectModal()">+ Add New Project</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Website Redesign</h3>
+                        <span class="project-status project-status-active">active</span>
+                    </div>
+                    <p class="project-description">Complete redesign of company website</p>
+                    <div class="project-actions">
+                        <button class="project-button project-button-edit" onclick="editProject(1)">Edit</button>
+                        <button class="project-button project-button-delete" onclick="deleteProject(1)">Delete</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Mobile App</h3>
+                        <span class="project-status project-status-planning">planning</span>
+                    </div>
+                    <p class="project-description">Develop new mobile application</p>
+                    <div class="project-actions">
+                        <button class="project-button project-button-edit" onclick="editProject(2)">Edit</button>
+                        <button class="project-button project-button-delete" onclick="deleteProject(2)">Delete</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">API Integration</h3>
+                        <span class="project-status project-status-completed">completed</span>
+                    </div>
+                    <p class="project-description">Integrate third-party APIs</p>
+                    <div class="project-actions">
+                        <button class="project-button project-button-edit" onclick="editProject(3)">Edit</button>
+                        <button class="project-button project-button-delete" onclick="deleteProject(3)">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for Add/Edit Project -->
+    <div class="modal-overlay" id="projectModal" onclick="closeProjectModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <h2 class="modal-title">Create New Project</h2>
+            <form class="project-form" onsubmit="handleProjectSubmit(event)">
+                <div class="form-group">
+                    <label for="projectName">Project Name</label>
+                    <input type="text" id="projectName" name="projectName" placeholder="Project name" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectDescription">Description</label>
+                    <textarea id="projectDescription" name="projectDescription" rows="4" placeholder="Project description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="projectStatus">Status</label>
+                    <select id="projectStatus" name="projectStatus">
+                        <option value="planning">Planning</option>
+                        <option value="active">Active</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="form-button form-button-primary">Create</button>
+                    <button type="button" class="form-button form-button-secondary" onclick="closeProjectModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function handleLogout() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'login.html';
+            }
+        }
+
+        function openProjectModal() {
+            const modal = document.getElementById('projectModal');
+            modal.style.display = 'flex';
+            modal.classList.add('active');
+        }
+
+        function closeProjectModal(event) {
+            if (!event || event.target.classList.contains('modal-overlay')) {
+                const modal = document.getElementById('projectModal');
+                modal.style.display = 'none';
+                modal.classList.remove('active');
+                document.querySelector('.project-form').reset();
+            }
+        }
+
+        function handleProjectSubmit(event) {
+            event.preventDefault();
+            // Handle form submission here
+            closeProjectModal();
+        }
+
+        function editProject(id) {
+            // Handle edit project
+            openProjectModal();
+        }
+
+        function deleteProject(id) {
+            if (confirm('Are you sure you want to delete this project?')) {
+                // Handle delete project
+            }
+        }
+
+        // Highlight active sidebar link
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname.split('/').pop() || 'projects.html';
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            
+            sidebarLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPage || (currentPage === 'projects.html' && href === 'projects.html')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

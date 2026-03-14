@@ -8,11 +8,15 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-500: oklch(63.7% 0.237 25.331);
-    --color-amber-50: oklch(98.7% 0.022 95.277);
+    --color-amber-300: oklch(87.9% 0.169 91.605);
     --color-amber-500: oklch(76.9% 0.188 70.08);
     --color-amber-950: oklch(27.9% 0.077 45.635);
+    --color-green-500: oklch(72.3% 0.219 149.579);
+    --color-green-800: oklch(44.8% 0.119 151.328);
     --color-blue-500: oklch(62.3% 0.214 259.815);
+    --color-blue-600: oklch(54.6% 0.245 262.881);
     --color-indigo-300: oklch(78.5% 0.115 274.713);
+    --color-purple-600: oklch(55.8% 0.288 302.321);
     --color-gray-800: oklch(27.8% 0.033 256.848);
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -219,6 +223,9 @@
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
+  .top-1 {
+    top: calc(var(--spacing) * 1);
+  }
   .top-1\/2 {
     top: calc(1 / 2 * 100%);
   }
@@ -227,6 +234,9 @@
   }
   .left-0 {
     left: calc(var(--spacing) * 0);
+  }
+  .left-1 {
+    left: calc(var(--spacing) * 1);
   }
   .left-1\/2 {
     left: calc(1 / 2 * 100%);
@@ -315,34 +325,30 @@
   .flex-1 {
     flex: 1;
   }
-  .flex-shrink {
-    flex-shrink: 1;
-  }
-  .flex-grow {
-    flex-grow: 1;
-  }
   .border-collapse {
     border-collapse: collapse;
   }
+  .-translate-x-1 {
+    --tw-translate-x: calc(var(--spacing) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
   .-translate-x-1\/2 {
     --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-y-1 {
+    --tw-translate-y: calc(var(--spacing) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-y-1\/2 {
     --tw-translate-y: calc(calc(1 / 2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
-  .transform {
-    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
-  }
   .cursor-pointer {
     cursor: pointer;
   }
   .resize {
     resize: both;
-  }
-  .grid-cols-1 {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
   .items-center {
     align-items: center;
@@ -419,9 +425,6 @@
   }
   .text-\[\#4f46e5\] {
     color: #4f46e5;
-  }
-  .text-\[\#374151\] {
-    color: #374151;
   }
   .text-red-500 {
     color: var(--color-red-500);
@@ -504,6 +507,11 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
+  .md\:text-amber-300 {
+    @media (width >= 48rem) {
+      color: var(--color-amber-300);
+    }
+  }
   .md\:text-amber-500 {
     @media (width >= 48rem) {
       color: var(--color-amber-500);
@@ -519,9 +527,32 @@
       color: var(--color-blue-500);
     }
   }
+  .lg\:text-blue-600 {
+    @media (width >= 64rem) {
+      color: var(--color-blue-600);
+    }
+  }
+  .lg\:text-shadow-blue-600 {
+    @media (width >= 64rem) {
+      --tw-text-shadow-color: oklch(54.6% 0.245 262.881);
+      @supports (color: color-mix(in lab, red, red)) {
+        --tw-text-shadow-color: color-mix(in oklab, var(--color-blue-600) var(--tw-text-shadow-alpha), transparent);
+      }
+    }
+  }
   .xl\:grid-cols-4 {
     @media (width >= 80rem) {
       grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+  .xl\:text-green-500 {
+    @media (width >= 80rem) {
+      color: var(--color-green-500);
+    }
+  }
+  .xl\:text-green-800 {
+    @media (width >= 80rem) {
+      color: var(--color-green-800);
     }
   }
   .xl\:text-indigo-300 {
@@ -529,14 +560,14 @@
       color: var(--color-indigo-300);
     }
   }
-  .\32 xl\:text-amber-50 {
-    @media (width >= 96rem) {
-      color: var(--color-amber-50);
-    }
-  }
   .\32 xl\:text-amber-950 {
     @media (width >= 96rem) {
       color: var(--color-amber-950);
+    }
+  }
+  .\32 xl\:text-purple-600 {
+    @media (width >= 96rem) {
+      color: var(--color-purple-600);
     }
   }
   .rtl\:rotate-180 {
@@ -596,26 +627,6 @@
   syntax: "*";
   inherits: false;
   initial-value: 0;
-}
-@property --tw-rotate-x {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-rotate-y {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-rotate-z {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-skew-x {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-skew-y {
-  syntax: "*";
-  inherits: false;
 }
 @property --tw-space-x-reverse {
   syntax: "*";
@@ -762,17 +773,21 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
+@property --tw-text-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-text-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
       --tw-translate-x: 0;
       --tw-translate-y: 0;
       --tw-translate-z: 0;
-      --tw-rotate-x: initial;
-      --tw-rotate-y: initial;
-      --tw-rotate-z: initial;
-      --tw-skew-x: initial;
-      --tw-skew-y: initial;
       --tw-space-x-reverse: 0;
       --tw-border-style: solid;
       --tw-font-weight: initial;
@@ -806,6 +821,8 @@
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-text-shadow-color: initial;
+      --tw-text-shadow-alpha: 100%;
     }
   }
 }

@@ -561,3 +561,64 @@ headTitle.addEventListener("click", () => {
   //   headTitle.style.color = "red";
   //   headTitle.style.fontSize = "blue";
 });
+
+let newEle = document.createElement("p");
+// let newEle2 = document.createElement("h2");
+newEle.textContent = "lorem";
+// newEle2.textContent = "lorem hi im h2";
+// document.getElementsByTagName("body")[0].prepend(newEle);
+
+headTitle.before(newEle);
+// let bodyTag = document.getElementsByTagName("body")[0];
+// newEle.remove();
+// bodyTag.removeChild(newEle);
+// let divParent = document.getElementById("parent");
+// let classNameHassan = document.getElementsByClassName("hassan")[0];
+// let divParent = document.getElementById("parent");
+// divParent.replaceChild(newEle2, headTitle);
+// headTitle.replaceWith(newEle2);
+
+// console.log(headTitle.parentElement);
+// console.log(divParent.children);
+// console.log(divParent.childElementCount);
+// console.log(divParent.firstChild);
+// console.log(divParent.firstElementChild);
+// console.log(divParent.lastChild);
+// console.log(divParent.lastElementChild);
+// console.log(classNameHassan);
+// console.log(classNameHassan.matches("#parent"));
+
+// console.log(headTitle.classList.contains("name"));
+// console.log(headTitle.classList.contains("name"));
+// let headTitle = document.querySelector("h1");
+let divParent = document.querySelector("#parent");
+let paragraph = document.createElement("p");
+paragraph.textContent = "lorem dkajf;j adsjfl jadlsj fldaj";
+
+// let bodyTag = document.body;
+// console.log(bodyTag);
+// bodyTag.append(paragraph);
+// bodyTag.appendChild(paragraph);
+// bodyTag.prepend(paragraph);
+
+// headTitle.after(paragraph);
+// headTitle.before(paragraph);
+// headTitle.before
+
+// headTitle.remove();
+// divParent.removeChild(headTitle);
+
+// console.log(divParent.children[0]);
+// divParent.children[0].removeChild(headTitle);
+// console.log(divParent.children[0]);
+
+// divParent.replaceChild(paragraph, headTitle);
+
+// headTitle.replaceWith(paragraph);
+
+console.log(headTitle.parentElement);
+console.log(divParent.children);
+console.log(divParent.childElementCount);
+console.log(divParent.firstElementChild);
+console.log(divParent.lastElementChild);
+console.log(divParent.matches(".hassan"));

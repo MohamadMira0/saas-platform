@@ -556,19 +556,19 @@ let headTitle = document.querySelector("h1");
 // console.log(headTitle.classList.contains("gass"));
 // console.log(headTitle.classList);
 
-headTitle.addEventListener("click", () => {
-  headTitle.classList.toggle("active");
-  //   headTitle.style.color = "red";
-  //   headTitle.style.fontSize = "blue";
-});
+// headTitle.addEventListener("click", () => {
+//   headTitle.classList.toggle("active");
+//   //   headTitle.style.color = "red";
+//   //   headTitle.style.fontSize = "blue";
+// });
 
-let newEle = document.createElement("p");
-// let newEle2 = document.createElement("h2");
-newEle.textContent = "lorem";
-// newEle2.textContent = "lorem hi im h2";
-// document.getElementsByTagName("body")[0].prepend(newEle);
+// let newEle = document.createElement("p");
+// // let newEle2 = document.createElement("h2");
+// newEle.textContent = "lorem";
+// // newEle2.textContent = "lorem hi im h2";
+// // document.getElementsByTagName("body")[0].prepend(newEle);
 
-headTitle.before(newEle);
+// headTitle.before(newEle);
 // let bodyTag = document.getElementsByTagName("body")[0];
 // newEle.remove();
 // bodyTag.removeChild(newEle);
@@ -591,9 +591,9 @@ headTitle.before(newEle);
 // console.log(headTitle.classList.contains("name"));
 // console.log(headTitle.classList.contains("name"));
 // let headTitle = document.querySelector("h1");
-let divParent = document.querySelector("#parent");
-let paragraph = document.createElement("p");
-paragraph.textContent = "lorem dkajf;j adsjfl jadlsj fldaj";
+// let divParent = document.querySelector("#parent");
+// let paragraph = document.createElement("p");
+// paragraph.textContent = "lorem dkajf;j adsjfl jadlsj fldaj";
 
 // let bodyTag = document.body;
 // console.log(bodyTag);
@@ -616,9 +616,63 @@ paragraph.textContent = "lorem dkajf;j adsjfl jadlsj fldaj";
 
 // headTitle.replaceWith(paragraph);
 
-console.log(headTitle.parentElement);
-console.log(divParent.children);
-console.log(divParent.childElementCount);
-console.log(divParent.firstElementChild);
-console.log(divParent.lastElementChild);
-console.log(divParent.matches(".hassan"));
+// console.log(headTitle.parentElement);
+// console.log(divParent.children);
+// console.log(divParent.childElementCount);
+// console.log(divParent.firstElementChild);
+// console.log(divParent.lastElementChild);
+// console.log(divParent.matches(".hassan"));
+
+// function handler() {
+//   headTitle.classList.toggle("active");
+// }
+// headTitle.addEventListener("click", handler);
+// headTitle.addEventListener("load", handler);
+// headTitle.addEventListener("DOMContentLoaded", handler);
+// headTitle.removeEventListener("click", handler)                                           ;
+
+// headTitle.addEventListener
+
+addEventListener("load", () => headTitle.classList.toggle("active"));
+addEventListener("DOMContentLoad", () => headTitle.classList.toggle("active"));
+// menubar.addEventListener("", () => {
+//   menubar.classList.toggle("is-open")
+// })
+
+console.log(headTitle.offsetWidth);
+console.log(headTitle.offsetHeight);
+console.log(headTitle.clientWidth);
+console.log(headTitle.clientHeight);
+// console.log(elemnt.scrollLeft);
+document.title = "Test";
+console.log(document.title);
+console.log(document.images);
+console.log(document.forms);
+let body = document.getElementsByTagName("body")[0];
+console.log(body);
+console.log(document.body);
+console.log(window.innerHeight);
+console.log(window.innerWidth);
+console.log(window.location);
+
+// icon.addEventListener("click", () => {
+//   if (body.classList.contains("dark")) {
+//     body.style.background = "black";
+//   }
+// });
+
+// console.log(window.localStorage.loglevel);
+
+localStorage.setItem("Theme", "Dark");
+let theme = localStorage.getItem("Theme");
+console.log(localStorage);
+console.log(theme);
+
+theme = "light";
+localStorage.setItem("theme", theme);
+localStorage.Theme = "dark";
+console.log(theme);
+// localStorage.removeItem("theme");
+// localStorage.clear();
+
+console.log(window.history);

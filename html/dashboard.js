@@ -38,3 +38,7 @@ console.log(dash);
 // var = "للتصريح عن متغير قابل للتعديل على قيمته"
 
 // const = "للتصريح عن متغير ثابت"
+
+export function sum(num1, num2) {
+  return num1 + num2;
+}

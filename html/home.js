@@ -530,7 +530,7 @@
 
 // }
 
-let headTitle = document.querySelector("h1");
+// let headTitle = document.querySelector("h1");
 // console.log(headTitle);
 // console.log(headTitle);
 // headTitle.setAttribute("class", "Mostafa");
@@ -633,27 +633,27 @@ let headTitle = document.querySelector("h1");
 
 // headTitle.addEventListener
 
-addEventListener("load", () => headTitle.classList.toggle("active"));
-addEventListener("DOMContentLoad", () => headTitle.classList.toggle("active"));
+// addEventListener("load", () => headTitle.classList.toggle("active"));
+// addEventListener("DOMContentLoad", () => headTitle.classList.toggle("active"));
 // menubar.addEventListener("", () => {
 //   menubar.classList.toggle("is-open")
 // })
 
-console.log(headTitle.offsetWidth);
-console.log(headTitle.offsetHeight);
-console.log(headTitle.clientWidth);
-console.log(headTitle.clientHeight);
+// console.log(headTitle.offsetWidth);
+// console.log(headTitle.offsetHeight);
+// console.log(headTitle.clientWidth);
+// console.log(headTitle.clientHeight);
 // console.log(elemnt.scrollLeft);
-document.title = "Test";
-console.log(document.title);
-console.log(document.images);
-console.log(document.forms);
-let body = document.getElementsByTagName("body")[0];
-console.log(body);
-console.log(document.body);
-console.log(window.innerHeight);
-console.log(window.innerWidth);
-console.log(window.location);
+// document.title = "Test";
+// console.log(document.title);
+// console.log(document.images);
+// console.log(document.forms);
+// let body = document.getElementsByTagName("body")[0];
+// console.log(body);
+// console.log(document.body);
+// console.log(window.innerHeight);
+// console.log(window.innerWidth);
+// console.log(window.location);
 
 // icon.addEventListener("click", () => {
 //   if (body.classList.contains("dark")) {
@@ -663,16 +663,579 @@ console.log(window.location);
 
 // console.log(window.localStorage.loglevel);
 
-localStorage.setItem("Theme", "Dark");
-let theme = localStorage.getItem("Theme");
-console.log(localStorage);
-console.log(theme);
+// localStorage.setItem("Theme", "Dark");
+// let theme = localStorage.getItem("Theme");
+// console.log(localStorage);
+// console.log(theme);
 
-theme = "light";
-localStorage.setItem("theme", theme);
-localStorage.Theme = "dark";
-console.log(theme);
+// theme = "light";
+// localStorage.setItem("theme", theme);
+// localStorage.Theme = "dark";
+// console.log(theme);
 // localStorage.removeItem("theme");
 // localStorage.clear();
 
-console.log(window.history);
+// console.log(window.history);
+
+// console.log(headTitle.offsetHeight);
+// console.log(headTitle.offsetWidth);
+// console.log(headTitle.getBoundingClientRect());
+// console.log(window.innerHeight);
+// console.log(window.innerWidth);
+// console.log(scrollX);
+// console.log(scrollY);
+// console.log(headTitle.scrollLeft);
+// console.log(headTitle.scrollLeft);
+
+// console.log(document.title);
+// document.title = "Mujahed";
+// console.log(document.URL);
+// console.log(document.forms);
+// console.log(document.links);
+// console.log(document.body);
+
+// console.log(window.history);
+
+// localStorage.setItem("name", "Mohab");
+// localStorage.setItem("Name", "Mosaub");
+// console.log(localStorage.getItem("name"));
+// localStorage.removeItem("name");
+// console.log(localStorage.getItem("name"));
+
+// localStorage.clear();
+
+// let names = ["Ahmad", "Mohammed", "Ghaith"];
+// let pers = { name: "mohab", age: 20 };
+
+// localStorage.setItem("pers", JSON.stringify(pers));
+// localStorage.setItem("names", JSON.stringify(names));
+// let afterReplaceJsonPers = JSON.parse(localStorage.getItem("pers"));
+
+// console.log(afterReplaceJsonPers);
+// console.log(typeof names);
+// console.log(typeof localStorage.getItem("names"));
+
+// console.log(localStorage.getItem(JSON.parse("names")));
+
+// let afterReplaceJson = JSON.parse(localStorage.getItem("names"));
+// JSON.parse(["Ahmad", "Mohammed", "Ghaith"]);
+// console.log(afterReplaceJson);
+
+// localStorage;
+// sessionStorage.setItem("name", "mohammed");
+// universalCookie
+
+// console.log(window.location);
+
+// let obj = {
+//   name: "mohammed",
+//   sayHello() {
+//     console.log(`hello ${this.name}`);
+//   },
+
+//   sayHelloArrow() {
+//     console.log(`hello ${this.name}`);
+//   },
+// };
+
+// obj.sayHello();
+// obj.sayHelloArrow();
+
+// function sayHello(name = "Mira", b, ...scores) {
+//   console.log(`hello ${name}`);
+//   console.log(`hello ${b}`);
+//   console.log(`${typeof scores}`);
+//   scores.forEach((score) => {
+//     console.log(score);
+//   });
+// }
+// let arr = [];
+// console.log(typeof arr);
+// sayHello("Mohammed", "hassan", "total", "res");
+// ? clouser
+// function debounce(fn, delay = 300) {
+//   let setTime;
+//   return function (...args) {
+//     clearTimeout(setTime);
+//     setTime = setTimeout(() => {
+//       console.log("args is " + args);
+//       return fn(...args);
+//     }, delay);
+//   };
+// }
+
+// let x =10
+// let inputSearch = document.getElementById("search");
+// function doSearch(value) {
+//   console.log("input search.value = " + value);
+// }
+// const debounceSearch = debounce((e) => {
+//   //   console.log("input search.value = " + e.target.value);
+//   doSearch(e.target.value);
+// }, 400);
+
+// inputSearch.addEventListener("keyup", debounceSearch);
+
+// inputSearch.addEventListener("click", (e) => {
+//   console.log(e);
+//   console.log(e.target.value);
+// });
+
+// setTimeout(() => {
+//   console.log("set Time out");
+// }, timeOut);
+
+// clearTimeout(timeOut);
+
+// let arr = [1, 2, 3, 5, 11];
+// let arr = [1, 2, 3, 5, 11];
+// for(let )
+// let sum = arr.reduce((acc, n) => acc + n, 0);
+// console.log(sum);
+
+// ? Throttel
+// function throttel(fn, delay = 1000) {
+//   let canUse = true;
+//   return function (...args) {
+//     if (!canUse) return;
+//     fn(...args);
+//     canUse = false;
+//     setTimeout(() => {
+//       canUse = true;
+//     }, delay);
+//   };
+// }
+// function debounce(fn, delay = 300) {
+//   let setTime;
+//   return function (...args) {
+//     clearTimeout(setTime);
+//     setTime = setTimeout(() => {
+//       console.log("args is " + args);
+//       return fn(...args);
+//     }, delay);
+//   };
+// }
+
+// window.addEventListener(
+//   "resize",
+//   throttel(() => {
+//     console.log("resize Document");
+//   }, 2000),
+// );
+
+// inputSearch.addEventListener("click", (e) => {
+// inputSearch.closest(".active").append("p");
+// });
+
+// let products = [
+//   {
+//     id: 1,
+//     name: "MIRA",
+//     skills: {
+//       skill1: "html",
+//     },
+//   },
+//   { id: 2, name: "MIRA" },
+//   { id: 3, name: "MIRA" },
+//   { id: 4, name: "MIRA" },
+// ];
+
+// const id = 4;
+// const firstItme = products.findIndex((product) => product.id == id);
+// const first2Itme = products.find((product) => product.id === 1);
+// const someItme = products.some((product) => product.name === "MIRA");
+// const everyItme = products.every((product) => "id" in product);
+// console.log(firstItme);
+// console.log(first2Itme);
+// console.log(someItme);
+// console.log(everyItme);
+
+// let personal = {
+//   name: "Amjad",
+//   age: 27,
+//   email: "ex@asgd",
+//   password: "123123",
+// };
+
+// let { name, age } = personal;
+// console.log(name);
+// console.log(age);
+
+// let firstProduct = products[0];
+// let { id, name: name2 } = firstProduct;
+
+// let { age, name, email, password } = personal;
+// console.log(products[0].id);
+// console.log(personal.age);
+// console.log(age);
+// console.log(email);
+// console.log(password);
+// console.log(name);
+// console.log(name2);
+
+// let arr = [5, 6];
+// let [state, setState] = arr;
+
+// console.log(state);
+// console.log(setState);
+
+// function Button({content}) {
+//     return (
+//         <button class="">{procontent}</button>
+//     )
+// }
+
+// let nums = [5, 15, 25];
+// let [a, b, c] = nums;
+// console.log(a);
+// console.log(b);
+// console.log(c);
+
+// const [state, setState] = useState()
+
+{
+  /* <Button content="send" text="" isValid /> */
+}
+
+// const [state, setState] = useState()
+
+// let products = [
+//   {
+//     id: 1,
+//     name: "MIRA",
+//     skills: {
+//       skill1: "html",
+//     },
+//   },
+//   { id: 2, name: "MIRA" },
+//   { id: 3, name: "MIRA" },
+//   { id: 4 },
+// ];
+
+// // ! optional chaining = ?
+
+// let res = products[0]?.skillls?.skill1 ?? "test";
+// let res1 = products[0]?.skillls?.skill1 || "test";
+// console.log(res);
+// console.log(res1);
+
+// let password = "SWB@2026@@"
+
+// let Element = document.getElementById("ele")
+// let Element1 = document.querySelector("#ele")
+// let Element2 = document.querySelectorAll(".ele")
+// Element.innerHTML = "hello world"
+
+// document.getElementById("headTitle").closest("[data-]").textContent
+
+// let timeOut = setTimeout(() => {
+//   console.log("set time after 1000");
+// }, 5000);
+// clearTimeout(timeOut);
+
+// console.log("after setTimeOut");
+
+// let obj = {
+//   id: 1,
+//   name: "MIRA",
+// };
+
+// let newObj = { ...obj, city: "Aleppo" };
+// newObj.id = 2;
+
+// console.log(obj);
+// console.log(newObj);
+// !! clouser
+// let inputSearch = document.getElementById("search");
+// function debounce(fn, delay) {
+//   let timerID;
+// return function (...args) {
+//     clearTimeout(timerID);
+//     timerID = setTimeout(() => {
+//       let newObj = { ...obj, city: "Aleppo" };
+//       fn(...args);
+//     }, delay);
+//   };
+// }
+
+// let obj = [
+//   {
+//     id: 1,
+//     name: "MIRA",
+//     sayHello() {
+//       console.log(`Hello ${this.name}`);
+//     },
+//     sayHelloArrow: () => { console.log(`Hello ${this.name}`)},
+//   },
+//   {
+//     id: 1,
+//     name: "Mohamad",
+//     sayHello() {
+//       console.log(this.name);
+//     },
+//     sayHelloArrow: () => {},
+//   },
+// ];
+
+// const start = Date.now();
+// console.log(Date.now() - start);
+
+// do {} while (Date.now() - start + 1 < 10000);
+// {
+//   console.log("Not DOne");
+// }
+
+// console.log("Done");
+
+// const prom = new Promise((resolve, reject) => {
+//   const ok = false;
+
+//   if (ok) {
+//     resolve();
+//   } else {
+//     reject(Error());
+//   }
+// });
+
+// fetch("https://jsonplaceholder.typicode.com/todos")
+//   .then((res) => res.json())
+//   .then((json) => console.log(json));
+
+// console.log(isLoggedIN);
+
+// let isLoggedIN = true;
+// console.log(isLoggedIN);
+
+// function name() {}
+
+// const name = () => {};
+// let personal = {
+//   name: "Mira",
+//   sayHello() {
+//     console.log(`Hello ${this.name}`);
+//     console.log(this);
+//   },
+//   sayHelloArrow: () => {
+//     console.log(this);
+//     console.log(`Hello ${this.name}`);
+//   },
+// };
+
+// personal.sayHello();
+// personal.sayHelloArrow();
+
+// function sayHello(name = "Mohammed") {
+//   console.log(`Hello ${name}`);
+// }
+
+// sayHello("laith");
+
+// function sum(...nums) {
+//   console.log(nums.reduce((acc, index) => acc + index, 0));
+// }
+// sum(1, 3, 4, 6);
+
+// function debounce(fn, delay) {
+//   let timerId;
+
+//   return function (...args) {
+//     clearTimeout(timerId);
+//     timerId = setTimeout(() => {
+//       fn(...args);
+//     }, delay);
+//   };
+// }
+
+// let inputSearch = document.getElementById("search");
+
+// const doSearch = debounce((e) => {
+//   console.log(e.target.value);
+// }, 500);
+
+// inputSearch.addEventListener("input", doSearch);
+
+// !! callback Hell
+
+// addEventListener("click", doSearch());
+
+// let prom = new Promise((resolve, rej) => {
+//   isSuccess = true;
+
+//   if (isSuccess) {
+//     resolve();
+//   } else {
+//     rej();
+//   }
+// });
+
+// fetch().then().then(
+//   () => LOADING = FALSE
+// ).catch(() => LOADING = FALSE)
+// let pseronal = {
+//   name: "mira",
+//   city: "aleppo",
+//   age: 30,
+//   dev: "sjkldf",
+// };
+// let body = {
+//   age: 25,
+// };
+
+// const [form, setForm] = useState({
+//   name: "",
+//   city: "",
+//   age: null,
+//   dev: "",
+// });
+
+// fetch("https://jsonplaceholder.typicode.com/todos", {body,method: "POST", })
+//   .then((res) => res.json())
+//   .then((data) => setForm(data));
+// .then((json) => console.log(json));
+
+// let js = {
+//   name: "",
+// };
+
+// eval(`alert("Hi")`);
+
+// function sum() {}
+// document.getElementById("search").onclick = sum();
+// addEventListener("click", sum);
+
+// !! xss = cross site scripting
+
+// !! csp = content security policy
+
+// console.log(`cards are : ${cards}`)
+// console.log(`${cards}`)
+// let todos = [,];
+// console.table([
+//   {
+//     userId: 1,
+//     id: 2,
+//     title: "quis ut nam facilis et officia qui",
+//     completed: false,
+//   },
+//   {
+//     userId: 1,
+//     id: 2,
+//     title: "quis ut nam facilis et officia qui",
+//     completed: false,
+//   },
+// ]);
+// console.log(res)
+// console.log(res)
+// console.log(res)
+
+// Promise.all([])
+// Promise.allSettled([])
+
+// import { sum } from "./dashboard.js";
+
+// console.log(sum(1, 3));
+
+// function anyThing() {}
+
+// const prom = new Promise((resolve, rejcet) => {
+//   const ok = false;
+//   if (ok) {
+//     resolve(console.log("success"));
+//   } else {
+//     rejcet(new Error("Field"));
+//   }
+// });
+// prom();
+// console.log("Hi");
+
+// async function isValid() {
+//   const ok = true;
+
+//   if (ok) {
+//     let sum = 0;
+//     for (let i = 0; i <= 100000; i++) {
+//       sum += i;
+//     }
+//     console.log(sum);
+//   } else {
+//     console.log("Field");
+//   }
+// }
+// isValid();
+// console.log("bye");
+
+// !! url , method, body
+// console.log("hi");
+
+// console.log("hiiiiiiiiiiiiiii");
+
+// Promise.all;
+// const data = Promise.all([
+//   fetch("https://jsonplaceholder.typicode.com/todossss", { method: "GET" })
+//     .then((res) => res.json())
+//     .then((data) => console.log(data))
+//     .catch((err) => console.log(err)),
+//   fetch("https://jsonplaceholder.typicode.com/todos", { method: "GET" })
+//     .then((res) => res.json())
+//     .then((data) => console.log(data))
+//     .catch((err) => console.log(err)),
+// fetch("https://jsonplaceholder.typicode.com/todos/1", { method: "GET" })
+// .then((res) => res.json())
+// .then((data) => console.log(data))
+// .catch((err) => console.log(err));
+// ]);
+
+// const requests = [
+// fetch("https://jsonplaceholder.typicode.com/todos/1").then((res) => {
+//   if (!res.ok) throw new Error(`HTTP ${res.status}`);
+//   return res.json();
+// });
+//   fetch("https://jsonplaceholder.typicode.com/todos").then((res) => {
+//     if (!res.ok) throw new Error(`HTTP ${res.status}`);
+//     return res.json();
+//   }),
+// ];
+
+// Promise.allSettled(requests)
+//   .then((allData) => console.log(allData))
+//   .catch((err) => console.error("Promise.all failed:", err));
+
+// async function getData() {
+//   fetch("https://jsonplaceholder.typicode.com/todossss")
+//     .then((res) => {
+//       if (!res.ok) throw new Error(`HTTP ${res.status}`);
+//       return res.json();
+//     })
+//     .then((data) => console.log(data));
+// }
+
+// async function getData() {
+//   try {
+//     loading = true
+//     let res = await fetch("https://jsonplaceholder.typicode.com/todos");
+//     console.log(res);
+//     let data = await res.json();
+//     console.log(data);
+//   } catch (error) {
+//     console.log(error);
+//   } finally {
+//     loading = false
+//   }
+// fetch("https://jsonplaceholder.typicode.com/todossss")
+//   .then((res) => {
+//     if (!res.ok) throw new Error(`HTTP ${res.status}`);
+//     return res.json();
+//   })
+//   .then((data) => console.log(data)).cat
+
+// if(){
+
+// }
+// }
+
+// getData();
+
+const inputSearch = document.getElementById("search");
+inputSearch.className = "test";
+inputSearch.id = "test";
+inputSearch.textContent = "Hello World";

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review Lab | HTML + Tailwind v4 + JS</title>
+    <link rel="stylesheet" href="../src/output.css" />
+  </head>
+  <body class="min-h-screen bg-slate-100 text-slate-800 dark:bg-slate-900 dark:text-slate-100">
+    <header class="sticky top-0 z-20 border-b border-slate-200/80 bg-white/90 backdrop-blur dark:border-slate-700 dark:bg-slate-800/90">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+        <a href="#" class="text-lg font-bold text-indigo-600 dark:text-indigo-400">Review Lab</a>
+        <div class="flex items-center gap-2">
+          <button
+            id="themeBtn"
+            class="rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium hover:bg-slate-100 dark:border-slate-600 dark:hover:bg-slate-700"
+            type="button"
+          >
+            Toggle Theme
+          </button>
+          <a href="home.html" class="rounded-lg bg-indigo-600 px-3 py-2 text-sm font-medium text-white hover:bg-indigo-500">Home</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="mx-auto max-w-6xl space-y-8 px-4 py-8">
+      <section class="rounded-2xl bg-linear-to-r from-indigo-600 to-blue-500 p-6 text-white shadow-lg">
+        <h1 class="text-2xl font-bold md:text-4xl">Quick Revision: HTML + Tailwind v4 + JavaScript</h1>
+        <p class="mt-3 max-w-3xl text-sm leading-6 md:text-base">
+          This page helps students review semantic HTML, responsive layouts, utility classes, forms, and JavaScript DOM interactions.
+        </p>
+      </section>
+
+      <section class="grid gap-4 md:grid-cols-3">
+        <article class="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+          <h2 class="text-lg font-semibold text-indigo-600 dark:text-indigo-400">Semantic HTML</h2>
+          <p class="mt-2 text-sm">Using <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;article&gt;</code> improves structure and accessibility.</p>
+        </article>
+        <article class="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+          <h2 class="text-lg font-semibold text-indigo-600 dark:text-indigo-400">Tailwind Utilities</h2>
+          <p class="mt-2 text-sm">Classes like <code>grid</code>, <code>md:grid-cols-3</code>, <code>rounded-xl</code>, and <code>hover:bg-*</code> style quickly without custom CSS.</p>
+        </article>
+        <article class="rounded-xl bg-white p-5 shadow-sm ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+          <h2 class="text-lg font-semibold text-indigo-600 dark:text-indigo-400">JavaScript DOM</h2>
+          <p class="mt-2 text-sm">We handle events, read values, update text, and manage state with simple JS functions.</p>
+        </article>
+      </section>
+
+      <section class="grid gap-6 lg:grid-cols-2">
+        <article class="rounded-2xl bg-white p-6 shadow ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+          <h3 class="text-xl font-semibold">Counter Demo</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Click buttons to update state using JavaScript.</p>
+          <div class="mt-4 flex items-center gap-3">
+            <button id="decreaseBtn" class="rounded-lg bg-rose-500 px-4 py-2 text-white hover:bg-rose-400" type="button">-</button>
+            <p id="counterValue" class="min-w-12 text-center text-2xl font-bold">0</p>
+            <button id="increaseBtn" class="rounded-lg bg-emerald-500 px-4 py-2 text-white hover:bg-emerald-400" type="button">+</button>
+            <button id="resetBtn" class="rounded-lg border border-slate-300 px-4 py-2 hover:bg-slate-100 dark:border-slate-600 dark:hover:bg-slate-700" type="button">Reset</button>
+          </div>
+        </article>
+
+        <article class="rounded-2xl bg-white p-6 shadow ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+          <h3 class="text-xl font-semibold">Live Form Validation</h3>
+          <form id="demoForm" class="mt-4 space-y-3">
+            <div>
+              <label class="mb-1 block text-sm font-medium" for="studentName">Student Name</label>
+              <input id="studentName" class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-indigo-500 focus:outline-none dark:border-slate-600 dark:bg-slate-900" placeholder="Enter your name" />
+            </div>
+            <div>
+              <label class="mb-1 block text-sm font-medium" for="studentEmail">Email</label>
+              <input id="studentEmail" type="email" class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-indigo-500 focus:outline-none dark:border-slate-600 dark:bg-slate-900" placeholder="student@email.com" />
+            </div>
+            <button class="w-full rounded-lg bg-indigo-600 py-2 font-medium text-white hover:bg-indigo-500" type="submit">Submit</button>
+          </form>
+          <p id="formMessage" class="mt-3 text-sm"></p>
+        </article>
+      </section>
+
+      <section class="rounded-2xl bg-white p-6 shadow ring-1 ring-slate-200 dark:bg-slate-800 dark:ring-slate-700">
+        <h3 class="text-xl font-semibold">Simple Task List</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Practice arrays, DOM creation, and event handling.</p>
+        <div class="mt-4 flex flex-col gap-3 sm:flex-row">
+          <input id="taskInput" class="flex-1 rounded-lg border border-slate-300 px-3 py-2 focus:border-indigo-500 focus:outline-none dark:border-slate-600 dark:bg-slate-900" placeholder="Write a task..." />
+          <button id="addTaskBtn" class="rounded-lg bg-indigo-600 px-4 py-2 font-medium text-white hover:bg-indigo-500" type="button">Add Task</button>
+        </div>
+        <ul id="taskList" class="mt-4 space-y-2"></ul>
+      </section>
+    </main>
+
+    <script>
+      const root = document.documentElement;
+      const themeBtn = document.getElementById("themeBtn");
+      const savedTheme = localStorage.getItem("theme");
+
+      if (savedTheme === "dark") {
+        root.classList.add("dark");
+      }
+
+      themeBtn.addEventListener("click", () => {
+        root.classList.toggle("dark");
+        localStorage.setItem("theme", root.classList.contains("dark") ? "dark" : "light");
+      });
+
+      let counter = 0;
+      const counterValue = document.getElementById("counterValue");
+      const renderCounter = () => {
+        counterValue.textContent = String(counter);
+      };
+
+      document.getElementById("increaseBtn").addEventListener("click", () => {
+        counter += 1;
+        renderCounter();
+      });
+
+      document.getElementById("decreaseBtn").addEventListener("click", () => {
+        counter -= 1;
+        renderCounter();
+      });
+
+      document.getElementById("resetBtn").addEventListener("click", () => {
+        counter = 0;
+        renderCounter();
+      });
+
+      const demoForm = document.getElementById("demoForm");
+      const formMessage = document.getElementById("formMessage");
+
+      demoForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const name = document.getElementById("studentName").value.trim();
+        const email = document.getElementById("studentEmail").value.trim();
+
+        if (name.length < 3) {
+          formMessage.textContent = "Name must be at least 3 characters.";
+          formMessage.className = "mt-3 text-sm text-rose-600";
+          return;
+        }
+
+        if (!email.includes("@")) {
+          formMessage.textContent = "Please enter a valid email address.";
+          formMessage.className = "mt-3 text-sm text-rose-600";
+          return;
+        }
+
+        formMessage.textContent = "Form submitted successfully.";
+        formMessage.className = "mt-3 text-sm text-emerald-600";
+        demoForm.reset();
+      });
+
+      const taskInput = document.getElementById("taskInput");
+      const addTaskBtn = document.getElementById("addTaskBtn");
+      const taskList = document.getElementById("taskList");
+
+      addTaskBtn.addEventListener("click", () => {
+        const value = taskInput.value.trim();
+        if (!value) return;
+
+        const li = document.createElement("li");
+        li.className = "flex items-center justify-between rounded-lg border border-slate-200 px-3 py-2 dark:border-slate-700";
+        li.innerHTML = `<span>${value}</span><button class="text-sm font-medium text-rose-500 hover:text-rose-400" type="button">Delete</button>`;
+
+        li.querySelector("button").addEventListener("click", () => {
+          li.remove();
+        });
+
+        taskList.appendChild(li);
+        taskInput.value = "";
+      });
+    </script>
+  </body>
+</html>

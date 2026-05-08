@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح CRUD باستخدام Fetch</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f7f8fb;
+            color: #1f2937;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .hint {
+            margin-top: 0;
+            color: #4b5563;
+        }
+
+        .grid {
+            display: grid;
+            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            margin-bottom: 16px;
+        }
+
+        .card {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 12px;
+            background: #f9fafb;
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 16px;
+        }
+
+        label {
+            font-size: 13px;
+            color: #374151;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            margin-bottom: 8px;
+        }
+
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        button {
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .secondary {
+            background: #6b7280;
+        }
+
+        .secondary:hover {
+            background: #4b5563;
+        }
+
+        pre {
+            direction: ltr;
+            text-align: left;
+            margin: 0;
+            background: #0f172a;
+            color: #e2e8f0;
+            border-radius: 10px;
+            padding: 12px;
+            max-height: 320px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <h1>مثال حقيقي CRUD باستخدام Fetch</h1>
+        <p class="hint">
+            API المستخدم: JSONPlaceholder - النتائج التالية تعرض نجاح أو فشل كل عملية.
+        </p>
+
+        <section class="grid">
+            <article class="card">
+                <h3>Read (GET)</h3>
+                <button id="readBtn">جلب أول 5 منشورات</button>
+            </article>
+
+            <article class="card">
+                <h3>Create (POST)</h3>
+                <label for="createTitle">العنوان</label>
+                <input id="createTitle" type="text" placeholder="عنوان المنشور">
+                <label for="createBody">المحتوى</label>
+                <textarea id="createBody" placeholder="اكتب محتوى المنشور"></textarea>
+                <button id="createBtn">إنشاء منشور</button>
+            </article>
+
+            <article class="card">
+                <h3>Update (PUT)</h3>
+                <label for="updateId">ID المنشور</label>
+                <input id="updateId" type="number" min="1" value="1">
+                <label for="updateTitle">عنوان جديد</label>
+                <input id="updateTitle" type="text" value="Updated Title">
+                <label for="updateBody">محتوى جديد</label>
+                <textarea id="updateBody">Updated Body</textarea>
+                <button id="updateBtn">تحديث منشور</button>
+            </article>
+
+            <article class="card">
+                <h3>Delete (DELETE)</h3>
+                <label for="deleteId">ID المنشور</label>
+                <input id="deleteId" type="number" min="1" value="1">
+                <button id="deleteBtn">حذف منشور</button>
+            </article>
+        </section>
+
+        <button id="clearLogBtn" class="secondary">مسح النتائج</button>
+        <pre id="resultLog">-- ستظهر النتائج هنا --</pre>
+    </main>
+
+    <script src="./fetch-crud.js"></script>
+</body>
+</html>
